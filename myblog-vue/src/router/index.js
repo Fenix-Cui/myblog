@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Main from "../views/Main";
 import Login from "../views/Login";
 import Myself from "../views/Myself";
+import Blog from "../views/Blog";
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,9 @@ export default new VueRouter({
     },{
       path: '/myself',
       component: Myself
+    },{
+      path: '/blog',
+      component: Blog
     }
   ]
 });

@@ -1,11 +1,19 @@
 <template>
-    <h1>Myself</h1>
+  <div>
+    <span v-for="i in 100">{{i}}<br/></span>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Myself"
+  export default {
+    name: "Myself",
+    components: {
+
+    },
+    data(){
+
     }
+  }
 </script>
 
 <style scoped>
