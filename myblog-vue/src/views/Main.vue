@@ -24,36 +24,6 @@
     <div class="main">
       <span>{{mainTitle}}<br/></span>
       <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
-      <span v-for="title in mainTitle"><div class="title_list">{{title}}</div></span>
     </div>
 
     <br/>
@@ -75,18 +45,18 @@
   import axios from "axios"
 
   export default {
-    props: [],
     name: "Main",
     data() {
       return {
         activeIndex: '1',
         mainTitle: [],
-
       };
-
     },
     mounted() {
-      axios.get("/api/http/main/getMainTitle")
+      let formData = new FormData(); //初始化时将form Dom对象传入
+      formData.append('data', this.$route.query.data);
+      console.log(this.$route.query.data)
+      axios.post("http://localhost:9000/http/main/getMainTitle", formData)
         // .then((res)=>{
         // this.mainTitle = res.data
         // })
@@ -96,13 +66,6 @@
             this.mainTitle.push(res.data[i]["title"])
           }
         })
-
-    },
-    methods: {
-
-    },
-    component:{
-
     }
   }
 
@@ -127,10 +90,10 @@
   }
   .title_list{
     /*background-color: coral;*/
-    width: 50%;
+    /*width: 50%;*/
     height: auto;
     overflow: hidden;
-    float: left;
+    /*float: left;*/
   }
 
   /*footer*/

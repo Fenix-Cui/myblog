@@ -64,7 +64,7 @@ export default function BasicLayout({ children }) {
         fixedHeader={false}
       >
         <Shell.Branding>
-          <Logo image="https://img.alicdn.com/tfs/TB1.ZBecq67gK0jSZFHXXa9jVXa-904-826.png" text="Logo" />
+          <Logo image="static/images/usth.jpg" text="黑龙江科技大学" />
         </Shell.Branding>
         <Shell.Navigation
           direction="hoz"

@@ -28,5 +28,16 @@
     }
   },
   "include": ["src", ".ice"],
-  "exclude": ["node_modules", "build", "public"]
+  "exclude": ["node_modules", "build", "public"],
+
+  //配置跨域，待确定是否正确
+//  "proxyConfig": {
+//    "/api": {
+//      "enable": true,
+//      "target": "http://192.168.5.92:9000",
+//      "pathRewrite": {
+//        "^/api": "/"
+//      }
+//    }
+//  }
 }

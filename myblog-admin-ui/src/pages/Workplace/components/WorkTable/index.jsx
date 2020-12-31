@@ -20,10 +20,10 @@ const { Cell } = ResponsiveGrid;
 const TimelineItem = Timeline.Item;
 const DEFAULT_DATA = {
   person: {
-    avatar: 'https://img.alicdn.com/tfs/TB1XdnvvUY1gK0jSZFCXXcwqXXa-500-500.png',
-    surname: '谢',
-    name: '莉莉',
-    email: 'xielili@aliwork-inc.com',
+    avatar: 'static/images/avatar.jpg',
+    surname: 'Fenix',
+    name: 'Cui',
+    email: '1260928312@qq.com',
   },
   orderList: mock.orderList,
   projectList: mock.projectList,
@@ -152,6 +152,7 @@ const WorkTable = (props) => {
                       </List.Item>
                     );
                   })}
+                  {/*可修改👇*/}
                   <List.Item>查看全部任务</List.Item>
                 </List>
               </Card.Content>
@@ -164,6 +165,7 @@ const WorkTable = (props) => {
                 height: '100%',
               }}
             >
+              {/*我的项目列表，待修改*/}
               <Card.Header title="我的项目" />
               <Card.Divider />
               <Card.Content>

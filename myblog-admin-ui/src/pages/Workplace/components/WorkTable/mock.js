@@ -1,62 +1,68 @@
 export default {
+  // 目标任务
+  // 从数据库获得，待修改
   orderList: [
     {
       id: 1,
-      name: '蓝瓶咖啡线下体验店室内设计1',
+      name: 'Spring',
       state: '进行中',
       level: 'high',
     },
     {
       id: 2,
-      name: '双12投放 Banner',
+      name: 'SpringMVC',
       state: '进行中',
       level: 'high',
     },
     {
       id: 3,
-      name: 'Global 大促活动',
+      name: 'SpringBoot',
       state: '进行中',
       level: 'high',
     },
     {
       id: 4,
-      name: 'Banner 拓展',
+      name: 'Redis',
       state: '进行中',
       level: 'middle',
     },
     {
       id: 5,
-      name: '类目市场宣传设计',
+      name: 'Nginx',
       state: '待处理',
       level: 'low',
     },
     {
       id: 6,
-      name: '类目市场宣传设计',
+      name: 'RedisPlus',
       state: '待处理',
       level: 'low',
     },
     {
       id: 7,
-      name: '类目市场宣传设计',
+      name: 'Python',
       state: '待处理',
       level: 'low',
     },
   ],
+  // 日程部分
+  // 从数据库获得，待修改
   timeLineList: [
     {
-      planName: '财经周会',
+      planName: 'Django',
       planAddress: '深圳 T4-4-1；杭州 7-4-9-N',
       planTime: '09:00',
       planDuaring: '2小时',
     },
     {
-      planName: '财经周会',
+      planName: 'Flask',
       planAddress: '深圳 T4-4-1；杭州 7-4-9-N',
       planTime: '11:00',
       planDuaring: '2小时',
     },
   ],
+  // 近期项目部分
+  // 从数据库获得，待修改
   projectList: [
     {
       projectId: 1,
@@ -99,6 +105,8 @@ export default {
       img: 'https://img.alicdn.com/tfs/TB1InwHvQT2gK0jSZFkXXcIQFXa-200-200.png',
     },
   ],
+  // 动态列表
+  // 从数据库获取，待修改
   updateList: [
     {
       projectItem: 'Fusion Design',
@@ -141,6 +149,7 @@ export default {
       avatar: 'https://img.alicdn.com/tfs/TB13djnvGL7gK0jSZFBXXXZZpXa-500-500.png',
     },
   ],
+  // 跳转入口，待修改
   entrances: [{
     name: '操作一',
     link: '/',

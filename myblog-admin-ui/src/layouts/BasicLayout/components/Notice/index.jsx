@@ -7,14 +7,14 @@ const defaultNoticeList = [
   {
     id: 1,
     name: 'Aric',
-    avatar: 'https://img.alicdn.com/tfs/TB1.ZBecq67gK0jSZFHXXa9jVXa-904-826.png',
-    message: '新标识怎么去掉？',
+    avatar: 'static/images/avatar.jpg',
+    message: '消息1？',
   },
   {
     id: 2,
     name: 'Mark',
-    avatar: 'https://img.alicdn.com/tfs/TB1.ZBecq67gK0jSZFHXXa9jVXa-904-826.png',
-    message: '如何查看新增页面？',
+    avatar: 'static/images/avatar.jpg',
+    message: '消息2？',
   },
 ];
 
@@ -34,7 +34,7 @@ const Notice = ({ noticeList }) => {
   }
 
   function viewMore() {
-    Message.success('点击了查看更多操作');
+    Message.success('暂无更多消息');
   }
 
   const renderList = noticeList.filter((item) => readList.indexOf(item.id) === -1);
@@ -55,9 +55,9 @@ const Notice = ({ noticeList }) => {
         className={styles.noticeContainer}
         header={
           <div className={styles.title}>
-            <h4>通知</h4>
+            <h4>消息</h4>
             <span className={styles.clear} onClick={clearNotice}>
-              清空通知
+              清空消息
             </span>
           </div>
         }
@@ -85,7 +85,7 @@ const Notice = ({ noticeList }) => {
             </List.Item>
           );
         })}
-        {renderList.length === 0 && <List.Item className={styles.empty}>你已查看所有通知</List.Item>}
+        {renderList.length === 0 && <List.Item className={styles.empty}>你已查看所有消息</List.Item>}
       </List>
     </Popup>
   );

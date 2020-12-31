@@ -5,11 +5,11 @@ import mock from './mock.js';
 import styles from './index.module.scss';
 
 const DEFAULT_DATA = {
-  subTitle: '门店活动效果',
+  subTitle: '待定',
   value: mock.value,
   chartData: mock.saleList,
   des: '周同比:',
-  rate: '10.1',
+  rate: '-10.1',
   chartHeight: 100,
 };
 
@@ -29,7 +29,8 @@ const FusionCardLineChart = (props) => {
         <div className={styles.value}>{value}</div>
         <div className={styles.des}>
           {des}
-          <span>{rate}↑</span>
+          {/*判断rate是否增长*/}
+          <span>{rate}{rate>0?'↑':'↓'}</span>
         </div>
         <Chart
           width={10}

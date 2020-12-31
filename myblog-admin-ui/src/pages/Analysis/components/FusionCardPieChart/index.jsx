@@ -5,8 +5,8 @@ import styles from './index.module.scss';
 
 const { Html } = Guide;
 const DEFAULT_DATA = {
-  title: '销售额类别占比',
-  value: 183112,
+  title: '博客中各类语言占比',
+  value: 183112,//总篇数
   chartData: [
     {
       type: '类别一事例一',
@@ -78,7 +78,7 @@ const FusionCardLineChart = (props) => {
           <Guide>
             <Html
               position={['50%', '50%']} // eslint-disable-next-line max-len
-              html={`<div style='color:#333;font-size:16px;text-align: center;width: 113px;'>销售额<br><span style='color:#333;font-family: Roboto-Bold;font-size:24px'>¥ ${value}</span></div>`}
+              html={`<div style='color:#333;font-size:16px;text-align: center;width: 113px;'>总篇数<br><span style='color:#333;font-family: Roboto-Bold;font-size:24px'>${value}</span></div>`}
               alignX="middle"
               alignY="middle"
             />
@@ -89,7 +89,7 @@ const FusionCardLineChart = (props) => {
             color="title"
             style={{
               lineWidth: 1,
-              stroke: '#fff',
+              stroke: '#ffffff',
             }}
           />
         </Chart>

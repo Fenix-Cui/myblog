@@ -1,5 +1,5 @@
 export default {
-  value: '123,456',
+  value: '999,999',
   saleList: [
     { date: 1, value: 3 },
     { date: 2, value: 9 },
@@ -10,5 +10,5 @@ export default {
     { date: 7, value: 8 },
     { date: 8, value: 7 },
   ],
-  dailySale: '¥1,234',
+  dailySale: '¥991,234',
 };

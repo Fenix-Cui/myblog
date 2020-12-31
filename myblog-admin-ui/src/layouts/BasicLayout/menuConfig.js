@@ -6,6 +6,7 @@ const asideMenuConfig = [
     icon: 'chart-pie',
     children: [
       {
+        // 整理部分
         name: '分析页面',
         path: '/dashboard/analysis',
       },
@@ -20,12 +21,12 @@ const asideMenuConfig = [
     ],
   },
   {
-    name: '表单页面',
+    name: '上传博客',
     path: '/',
     icon: 'copy',
     children: [
       {
-        name: '单列表单',
+        name: '提交MarkDown文件',
         path: '/form/basic',
       },
       {

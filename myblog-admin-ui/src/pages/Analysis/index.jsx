@@ -29,26 +29,32 @@ const Analysis = () => {
       </Cell>
 
       <Cell colSpan={3}>
+        {/*已修改，待传值*/}
         <FusionCardBarChart />
       </Cell>
 
       <Cell colSpan={3}>
+        {/*已修改，待传值*/}
         <FusionCardAreaChart />
       </Cell>
 
       <Cell colSpan={3}>
+        {/*已修改，待传值*/}
         <FusionCardTypebarChart />
       </Cell>
 
       <Cell colSpan={3}>
+        {/*已修改，待传值*/}
         <FusionCardLineChart />
       </Cell>
 
       <Cell colSpan={12}>
+        {/*已修改部分，待传值*/}
         <FusionCardRankChart />
       </Cell>
 
       <Cell colSpan={4}>
+        {/*已修改，待传值*/}
         <FusionCardPieChart />
       </Cell>
 

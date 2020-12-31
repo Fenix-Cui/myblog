@@ -11,15 +11,7 @@
 
 export default {
   name: 'App',
-  components: {
-
-  },
-  data() {
-    return {};
-  },
-  methods: {},
   mounted() {
-
     window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 
     let canvas = document.querySelector("canvas");
@@ -42,7 +34,6 @@ export default {
       this.life = 0;
       this.maxlife = getRandom(1,3);
       this.alpha = getRandom(0.01,0.2);
-
     };
 
     Dot.prototype.draw = function(x, y){
@@ -69,7 +60,6 @@ export default {
       ctx.clearRect(0,0, canvas.width, canvas.height);
       for (let i = 0; i < 600; i++) {
         new Dot(canvas.width*Math.random()*2-canvas.width/2, canvas.height*Math.random(), getRandom(-15,15), getRandom(70,150));
-
       }
 
       for(let i in particles){
@@ -83,7 +73,6 @@ export default {
     function getRandom(min, max) {
       return Math.random() * (max - min) + min;
     }
-
   }
 }
 

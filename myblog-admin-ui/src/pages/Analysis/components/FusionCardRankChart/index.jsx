@@ -8,17 +8,17 @@ const DEFAULT_DATA = {
   dataSource: [
     {
       name: '亚洲',
-      rate: '40%',
+      rate: '90%',
       color: '#2B7FFB',
     },
     {
       name: '欧洲',
-      rate: '30%',
+      rate: '0%',
       color: '#00D6CB',
     },
     {
       name: '南非',
-      rate: '20%',
+      rate: '0%',
       color: '#F0C330',
     },
     {
@@ -73,18 +73,19 @@ const FusionCardRankChart = (props) => {
                 <Divider direction="hoz" />
                 <Box className={styles.subMain} spacing={20} direction="row" align="center" justify="center">
                   <Box>
-                    <div className={styles.subTypeName}>商品类目1</div>
+                    <div className={styles.subTypeName}>类目1</div>
                     <div className={styles.subTypeValue}>6,123</div>
                   </Box>
                   <Divider direction="ver" className={styles.subMainDiv} />
                   <Box>
-                    <div className={styles.subTypeName}>商品类目2</div>
+                    <div className={styles.subTypeName}>类目2</div>
                     <div className={styles.subTypeValue}>132,4</div>
                   </Box>
                 </Box>
                 <Box className={styles.subFooter} direction="column" justify="center" align="center">
                   <div>周同比</div>
                   <div>45%↑</div>
+                  {/*{rate>0?'↑':'↓'}*/}
                 </Box>
               </div>
             </Box>
