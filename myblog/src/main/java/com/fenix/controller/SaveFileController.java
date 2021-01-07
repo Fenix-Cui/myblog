@@ -14,12 +14,10 @@ import static com.fenix.public_class.public_method.save_file;
 @RestController
 @RequestMapping("/http/main")
 @Service
-@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
-@Transactional
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class SaveFileController {
     @RequestMapping("/saveFile")
-    @ResponseBody
-    public JSON saveFile(HttpServletRequest request, @RequestParam("file") MultipartFile file){
+    public JSON saveFile(@RequestParam("file") MultipartFile file){
         String content = "";
         content = save_file(file, content);
         JSONObject response_json = new JSONObject();
@@ -30,6 +28,7 @@ public class SaveFileController {
             return response_json;
         }
         response_json.put("save_path", content);
+        response_json.put("title", file.getOriginalFilename());
         return response_json;
     }
 
