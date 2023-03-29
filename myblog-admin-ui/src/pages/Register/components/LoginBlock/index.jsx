@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import { Input, Message, Form } from '@alifd/next';
 import { useInterval } from './utils';
 import styles from './index.module.scss';
+import axios from "axios";
 
 const { Item } = Form;
 export default function RegisterBlock() {
   const [postData, setValue] = useState({
-    email: '',
-    password: '',
-    rePassword: '',
-    phone: '',
-    code: '',
+    username: 'fenix',
+    email: '1@1.1',
+    password: '123456',
+    rePassword: '123456',
+    phone: '12388888888',
+    code: '123456',
   });
   const [isRunning, checkRunning] = useState(false);
   const [second, setSecond] = useState(59);
@@ -48,14 +50,34 @@ export default function RegisterBlock() {
     }
   };
 
+
   const handleSubmit = (values, errors) => {
     if (errors) {
       console.log('errors', errors);
       return;
     }
+    // 添加验证码功能后修改
+    console.log(isRunning);
 
-    console.log('values:', values);
-    Message.success('注册成功');
+    let formData = new FormData(); //初始化时将form Dom对象传入
+    formData.append('username', values.username);
+    formData.append('email', values.email);
+    formData.append('password', values.password);
+    formData.append('rePassword', values.rePassword);
+    formData.append('phone', values.phone);
+    formData.append('code', values.code);
+    axios.post("http://localhost:9000//http/main/getRegisterResult", formData).then((res)=>{
+      console.log(res.data)
+        if(res.data.message == "success"){
+
+          Message.success('注册成功');
+          window.location.href="/#/user/login"
+        }else{
+          Message.error('注册失败，请过段时间重试或联系管理员');
+        }
+      }
+    )
+
   };
 
   return (
@@ -71,6 +93,11 @@ export default function RegisterBlock() {
         <p className={styles.desc}>注册账号</p>
 
         <Form value={postData} onChange={formChange} size="large">
+
+          <Item required requiredMessage="必填">
+            <Input name="username" size="large" maxLength={10} placeholder="用户名" />
+          </Item>
+
           <Item format="email" required requiredMessage="必填">
             <Input name="email" size="large" maxLength={20} placeholder="邮箱" />
           </Item>
@@ -130,7 +157,7 @@ export default function RegisterBlock() {
               textAlign: 'center',
             }}
           >
-            <a href="/" className={styles.link}>
+            <a href="/#/user/login" className={styles.link}>
               使用已有账号登录
             </a>
           </Item>

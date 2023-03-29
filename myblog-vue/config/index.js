@@ -10,17 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // proxyTable: {
-    //   "/api": {
-    //     // target: "http://192.168.1.9:9000",
-    //     target: "http://192.168.5.92:9000",
-    //     pathRewrite: {
-    //       "^/api": "/"
-    //     },
-    //     changeOrigin: true, // 允许跨域
-    //     secure: false
-    //   }
-    // },
+    proxyTable: {
+      // "/api": {
+      //   target: "http://pv.sohu.com",
+      //   pathRewrite: {
+      //     "^/api": ""
+      //   },
+      //   changeOrigin: true, // 允许跨域
+      //   secure: false
+      // }
+    },
 
 
     // Various Dev Server settings

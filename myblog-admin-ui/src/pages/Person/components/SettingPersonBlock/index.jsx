@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 const { Cell } = ResponsiveGrid;
 const FormItem = Form.Item;
 const DEFAULT_DATA = {
-  name: '阿里-Amy',
+  name: 'Fenix.Cui',
 };
 
 const DEFAULT_ON_SUBMIT = (values, errors) => {

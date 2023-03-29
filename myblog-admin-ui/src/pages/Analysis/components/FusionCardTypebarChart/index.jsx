@@ -3,10 +3,32 @@ import { Card } from '@alifd/next';
 import { Chart, Geom, Coord } from 'bizcharts';
 import mock from './mock.js';
 import styles from './index.module.scss';
+import axios from "axios";
+
+class MonthValue extends React.Component{
+  updateValue = async () => {
+    const res = await axios.get("http://localhost:9000/http/main/getMonthVisits");
+    this.setState({
+      monthValue: (res.data).length
+    })
+  }
+  constructor() {
+    super();
+    this.state={
+      monthValue: 0
+    }
+    this.updateValue();
+  }
+  render() {
+    return (
+      <div className={styles.value}>{this.state.monthValue}</div>
+    );
+  }
+}
 
 const DEFAULT_DATA = {
   subTitle: '月访问量',
-  value: mock.value,
+  // value: mock.value,
   chartData: mock.saleList,
   des: '周同比:',
   rate: '10.1',
@@ -26,7 +48,8 @@ const FusionCardTypebarChart = (props) => {
       ) : null}
       <Card.Content>
         <div className={styles.subTitle}>{subTitle}</div>
-        <div className={styles.value}>{value}</div>
+        {/*<div className={styles.value}>{value}</div>*/}
+        <MonthValue></MonthValue>
         <div className={styles.des}>
           {des}
           <span>{rate}{rate>0?'↑':'↓'}</span>

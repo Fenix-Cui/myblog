@@ -40,7 +40,6 @@ import Person from '@/pages/Person';
 
 const routerConfig = [
   {
-    mode: 'history',//
     path: '/user',
     component: UserLayout,
     children: [
@@ -59,7 +58,6 @@ const routerConfig = [
     ],
   },
   {
-    mode: 'history',//
     path: '/',
     component: BasicLayout,
     children: [
@@ -197,7 +195,8 @@ const routerConfig = [
       },
       {
         path: '/',
-        redirect: '/dashboard/analysis',
+        // redirect: '/dashboard/analysis',
+        redirect: '/user/login',
       },
     ],
   },

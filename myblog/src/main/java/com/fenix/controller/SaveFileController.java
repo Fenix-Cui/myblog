@@ -24,8 +24,7 @@ public class SaveFileController {
 
         if (content.equals("")){
             response_json.put("save_path","");
-            System.out.println("文件保存失败");
-            return response_json;
+            System.out.println("文件保存失败");            return response_json;
         }
         response_json.put("save_path", content);
         response_json.put("title", file.getOriginalFilename());

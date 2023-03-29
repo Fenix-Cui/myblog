@@ -8,6 +8,7 @@ import HeaderAvatar from './components/HeaderAvatar';
 import Logo from './components/Logo';
 import Footer from './components/Footer';
 
+
 (function () {
   const throttle = function (type, name, obj = window) {
     let running = false;

@@ -29,6 +29,7 @@ const asideMenuConfig = [
         name: '提交MarkDown文件',
         path: '/form/basic',
       },
+      /*
       {
         name: '两列表单',
         path: '/form/two',
@@ -61,6 +62,7 @@ const asideMenuConfig = [
         name: '分级表单',
         path: '/form/hierarchical',
       },
+      */
     ],
   },
   {
@@ -68,6 +70,7 @@ const asideMenuConfig = [
     path: '/',
     icon: 'chart-bar',
     children: [
+      /*
       {
         name: '基础列表',
         path: '/list/basic',
@@ -76,6 +79,7 @@ const asideMenuConfig = [
         name: '卡片列表',
         path: '/list/card',
       },
+      */
       {
         name: '表格列表',
         path: '/',
@@ -116,6 +120,7 @@ const asideMenuConfig = [
       },
     ],
   },
+  /*
   {
     name: '详情页面',
     path: '/',
@@ -131,6 +136,7 @@ const asideMenuConfig = [
       },
     ],
   },
+  */
   {
     name: '结果&缺省',
     path: '/',
@@ -163,10 +169,12 @@ const asideMenuConfig = [
     path: '/',
     icon: 'set',
     children: [
+      /*
       {
         name: '系统设置',
         path: '/settings',
       },
+       */
       {
         name: '个人设置',
         path: '/person',

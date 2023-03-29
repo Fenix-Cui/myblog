@@ -38,8 +38,10 @@ public class RegisterResultController {
             response_json.put("message", "success");
             return response_json;
         }catch (Exception e){
+            System.out.println(e);
             response_json.put("message", "error");
             return response_json;
         }
     }
+
 }

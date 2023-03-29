@@ -17,7 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/http/main")
 @Service
-@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class LoginResultController {
 
     @Autowired

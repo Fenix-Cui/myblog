@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
-import { Input, Message, Form, Divider, Checkbox, Icon } from '@alifd/next';
+import { Input, Message, Form, Divider, Checkbox, Icon, Notification, Button } from '@alifd/next';
 import { useInterval } from './utils';
 import styles from './index.module.scss';
+import axios from "axios";
+
+const openNotification = () => {
+  const args = {
+    title: '暂时不可用',
+    content: '抱歉，未开放其他登录方式，请使用其他方式登录。',
+    icon: 'prompt'
+  };
+  Notification.open(args);
+};
 
 const { Item } = Form;
 const DEFAULT_DATA = {
@@ -47,16 +57,30 @@ const LoginBlock = (
     checkRunning(true);
   };
 
+  // 提交表单
   const handleSubmit = (values, errors) => {
     if (errors) {
       console.log('errors', errors);
       return;
     }
+    // console.log('values:', values);
 
-    console.log('values:', values);
-    Message.success('登录成功');
+    let formData = new FormData(); //初始化时将form Dom对象传入
+    formData.append('username', values.name);
+    formData.append('password', values.password);
+    axios.post("http://localhost:9000//http/main/getLoginResult", formData).then((res)=>{
+        if(res.data.message == "success"){
+
+          Message.success('登录成功');
+          window.location.href="/#/dashboard/analysis"
+        }else{
+          Message.error('用户名或密码错误');
+        }
+      }
+    )
   };
 
+  // 手机号登录表单
   const phoneForm = (
     <>
       <Item format="tel" required requiredMessage="必填" asterisk={false}>
@@ -105,6 +129,7 @@ const LoginBlock = (
       </Item>
     </>
   );
+  // 账号密码登录表单
   const accountForm = (
     <>
       <Item required requiredMessage="必填">
@@ -159,7 +184,7 @@ const LoginBlock = (
                 marginBottom: 0,
               }}
             >
-              <Checkbox name="autoLogin" className={styles.infoLeft}>
+              <Checkbox name="autoLogin" className={styles.infoLeft} disabled>
                 自动登录
               </Checkbox>
             </Item>
@@ -180,11 +205,11 @@ const LoginBlock = (
             </Form.Submit>
           </Item>
           <div className={styles.infoLine}>
-            <div className={styles.infoLeft}>
-              其他登录方式 <Icon type="atm" size="small" /> <Icon type="atm" size="small" />{' '}
-              <Icon type="atm" size="small" />
-            </div>
-            <a href="/" className={styles.link}>
+            <Button type="secondary" size="small" duration="5" onClick={openNotification}>
+              其他登录方式
+            </Button>
+
+            <a href="/#/user/register" className={styles.link}>
               注册账号
             </a>
           </div>

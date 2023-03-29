@@ -32,22 +32,22 @@ const DEFAULT_ON_SUBMIT = (values, errors) => {
 
   // 提交位置
   console.log('values:', values);
-  submitMD(values);
-  Message.success('提交成功');
+  saveBlog(values);
 };
 
 let save_path = "";
+let mdTitle = "";
 
-const submitMD = (values) => {
+const saveBlog = (values) => {
   // let name = document.querySelector("#name").value
-  let name = values.name;
+  // let name = values.name;
   let category = values.category;
   let author = values.author;
   let date_create = values.date[0].format('YYYY-MM-DD HH:mm:ss');
   let date_update = values.date[1].format('YYYY-MM-DD HH:mm:ss');
 
   let blog_data = new FormData();
-  blog_data.append("name", name);
+  blog_data.append("mdTitle", mdTitle);
   blog_data.append("category", category);
   blog_data.append("author", author);
   blog_data.append("date_create", date_create);
@@ -57,18 +57,23 @@ const submitMD = (values) => {
   let url="http://localhost:9000/http/main/saveBlog";
   axios.post(url, blog_data).then((res)=>{
     console.log(res.data);
+    if(res.data.message=="success"){
+      Message.success('提交成功');
+    }else{
+      Message.error('提交失败');
+    }
   })
 
 };
 
-const crossdomain = (res) =>{
-  console.log(res);
+const getSaveFilePath = (res) =>{
   let formData = new FormData(); //初始化时将form Dom对象传入
   formData.append('file', res);
-  console.log("begin");
   axios.post("http://localhost:9000//http/main/saveFile", formData).then((res)=>{
     console.log(res.data.save_path);
+    console.log(res.data.title);
     save_path = res.data.save_path;
+    mdTitle = res.data.title;
     }
   )
 };
@@ -92,8 +97,8 @@ const BasicForm = (props) => {
     <Card free>
       <Card.Content>
         <Form className={styles.BasicForm} responsive fullWidth value={postData} labelAlign="top" onChange={formChange}>
-          <FormItem {...formItemLayout} label="文章标题：" required requiredMessage="必填">
-            <Input placeholder="请输入文章的名称" name="name" />
+          <FormItem {...formItemLayout} label="文章标题：">
+            <Input placeholder="请输入文章的名称" name="name" disabled/>
           </FormItem>
 
           <FormItem {...formItemLayout} label="文章分类：" required requiredMessage="必填">
@@ -106,7 +111,7 @@ const BasicForm = (props) => {
           </FormItem>
 
           <FormItem {...formItemLayout} label="创建作者" required requiredMessage="必填">
-            <Input placeholder="请输入作者姓名" name="author" />
+            <Input placeholder="请输入作者姓名" name="author" value="Fenix"/>
           </FormItem>
 
           <FormItem {...formItemLayout} label="项目权限：">
@@ -124,7 +129,7 @@ const BasicForm = (props) => {
           </FormItem>
 
           <FormItem {...formItemLayout} label="上传MarkDown文件：" required requiredMessage="必填">
-            <Upload shape="card" name="markdown" dragable={true} action="http://localhost:9000/http/main/saveFile" beforeUpload={crossdomain} onSuccess={upload_success} onError={upload_error}>
+            <Upload shape="card" name="markdown" dragable={true} action="http://localhost:9000/http/main/saveFile" beforeUpload={getSaveFilePath} onSuccess={upload_success} onError={upload_error}>
               MarkDown
             </Upload>
           </FormItem>

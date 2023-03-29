@@ -58,6 +58,7 @@ const HeaderAvatar = (props) => {
   );
 };
 
+// 导航栏右侧
 HeaderAvatar.defaultProps = {
   name: 'Fenix',
   mail: '1260928312@qq.com',

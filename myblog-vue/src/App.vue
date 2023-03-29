@@ -1,17 +1,33 @@
 <template>
   <div id="app">
     <el-backtop class="backtop"></el-backtop>
-    <div><canvas></canvas></div>
-    <div class="background"><img src="static/images/bg01.jpg"/></div>
+    <div>
+      <canvas></canvas>
+    </div>
+    <!--    <div class="background">-->
+    <!--      <img src="static/images/bg01.jpg"/>-->
+    <!--    </div>-->
+    <!-- Header -->
+
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'App',
+  data(){
+    return {
+      // urlIP: "localhost"
+      urlIP: "36.138.46.154",
+      urlPort: "9000"
+    }
+  },
+  methods:{
+
+  },
   mounted() {
+
     window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 
     let canvas = document.querySelector("canvas");
@@ -67,9 +83,7 @@ export default {
       }
       frameId = requestAnimationFrame(loop);
     }
-
     loop();
-
     function getRandom(min, max) {
       return Math.random() * (max - min) + min;
     }
@@ -80,26 +94,46 @@ export default {
 </script>
 
 <style>
-
-  .background{
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: fixed;
+  /*header*/
+  .el-submenu .el-submenu__title {
+    background-color: rgba(0,0,0,0) !important;
   }
+  /*.el-submenu:hover{*/
+  /*  background-color: rgba(0,0,0,0) !important;*/
+  /*}*/
+  .el-menu-item:hover{
+    background-color: rgba(0,0,0,0) !important;
+  }
+
+  .el-menu.el-menu--horizontal{
+    border: none;
+  }
+
+  .el-menu-demo, el-menu, el-menu-item, el-submenu {
+    background-color: rgba(0,0,0,0);
+  }
+
+  /*.background{*/
+  /*  width: 100%;*/
+  /*  height: 100%;*/
+  /*  z-index: -11;*/
+  /*  position: fixed;*/
+  /*}*/
 
   *{
     margin: 0;
     /*z-index: -1;*/
   }
   canvas {
-    background: rgba(0,0,0,0);
+    /*background: rgba(0,0,0,0);*/
+    /*height: 13%;*/
+    /*width: 18%;*/
     height: 100%;
     width: 100%;
-    position: absolute;
-    /*background-image: url("static/images/bg.jpg");*/
+    position: fixed;
+    background-image: url("../static/images/bg.jpg");
     background-size: cover;
-    /*z-index: -1;*/
+    z-index: -10;
   }
 
 

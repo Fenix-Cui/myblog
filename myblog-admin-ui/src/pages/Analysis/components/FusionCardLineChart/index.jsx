@@ -3,10 +3,32 @@ import { Card } from '@alifd/next';
 import { Chart, Geom } from 'bizcharts';
 import mock from './mock.js';
 import styles from './index.module.scss';
+import axios from "axios";
+
+class AllValue extends React.Component{
+  updateValue = async () => {
+    const res = await axios.get("http://localhost:9000/http/main/getAllVisits");
+    this.setState({
+      allValue: (res.data).length
+    })
+  }
+  constructor() {
+    super();
+    this.state={
+      allValue: 0
+    }
+    this.updateValue();
+  }
+  render() {
+    return (
+      <div className={styles.value}>{this.state.allValue}</div>
+    );
+  }
+}
 
 const DEFAULT_DATA = {
-  subTitle: '待定',
-  value: mock.value,
+  subTitle: '总访问量',
+  // value: mock.value,
   chartData: mock.saleList,
   des: '周同比:',
   rate: '-10.1',
@@ -26,7 +48,8 @@ const FusionCardLineChart = (props) => {
       ) : null}
       <Card.Content>
         <div className={styles.subTitle}>{subTitle}</div>
-        <div className={styles.value}>{value}</div>
+        {/*<div className={styles.value}>{value}</div>*/}
+        <AllValue></AllValue>
         <div className={styles.des}>
           {des}
           {/*判断rate是否增长*/}

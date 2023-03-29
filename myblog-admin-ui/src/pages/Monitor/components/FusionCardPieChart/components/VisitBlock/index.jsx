@@ -3,18 +3,40 @@ import { Card, Box } from '@alifd/next';
 import { Chart, Geom, Axis, Tooltip } from 'bizcharts';
 import classNames from 'classnames';
 import styles from './index.module.scss';
+import axios from "axios";
+
+class BannedIP extends React.Component{
+  BannedIPs = async () => {
+    const res = await axios.get("http://localhost:9000/http/main/geBannedIPs");
+    this.setState({
+      bandedNums: (res.data).length
+    })
+  }
+  constructor() {
+    super();
+    this.state={
+      bandedNums: 0
+    }
+    this.BannedIPs();
+  }
+  render() {
+    return (
+      <div className={styles.value}>{this.state.bandedNums}</div>
+    );
+  }
+}
 
 const DEFAULT_DATA = {
   titleItem: [
     {
-      name: '总PV',
-      value: '234,465789',
+      name: '总禁止数',
+      value: '161,236',
       des: '周同比:',
       rate: 10.1,
     },
     {
-      name: '总UV',
-      value: '234,465789',
+      name: '当前禁止数',
+      value: '5,151',
       des: '周同比:',
       rate: -10.1,
     },

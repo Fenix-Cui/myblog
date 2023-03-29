@@ -1,5 +1,9 @@
+import axios from "axios";
+
+
+
 export default {
-  value: '999,999',
+  value: 0,
   saleList: [
     { date: 1, value: 3 },
     { date: 2, value: 9 },
