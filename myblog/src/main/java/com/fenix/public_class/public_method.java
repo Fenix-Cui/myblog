@@ -4,11 +4,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class public_method {
 
 
     public static String save_file(MultipartFile file, String content){
+
         String save_path = "D:/WebSite Folder/Fenix_Blog/file/";  // 存储路径
         String save_path_name = file.getOriginalFilename();  // 获取文件名（包括后缀）
         save_path += save_path_name;
